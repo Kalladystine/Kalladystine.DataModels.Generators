@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddClassModelToPackageModel.cs" />
+    <Compile Include="ScopeActivities\AddGenericProperty.cs" />
+    <Compile Include="ScopeActivities\AddProperty.cs" />
     <Compile Include="AddPropertyModelToClassModel.cs" />
     <Compile Include="AddGenericPropertyModelToClassModel.cs" />
+    <Compile Include="ScopeActivities\ClassModelScope.cs" />
     <Compile Include="CompileAndPackPackageModel.cs" />
     <Compile Include="CreateClassModel.cs" />
     <Compile Include="CreateGeneratorDirectorySet.cs" />
@@ -55,6 +58,7 @@
     <Compile Include="CreatePackageModel.cs" />
     <Compile Include="CreatePropertyModel.cs" />
     <Compile Include="EnsureDirectorySetIsValid.cs" />
+    <Compile Include="ScopeActivities\PackageModelScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

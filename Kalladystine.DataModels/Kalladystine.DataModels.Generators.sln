@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalladystine.DataModels.Gen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalladystine.DataModels.Generators.Activities", "Kalladystine.DataModels.Generators.Activities\Kalladystine.DataModels.Generators.Activities.csproj", "{2820C2DF-F04A-44C2-B365-A6444A904255}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalladystine.DataModels.Generators.Activities.Design", "Kalladystine.DataModels.Generators.Activities.Design\Kalladystine.DataModels.Generators.Activities.Design.csproj", "{C193ECF3-FD35-4E75-A617-8D280AC8E044}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2820C2DF-F04A-44C2-B365-A6444A904255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2820C2DF-F04A-44C2-B365-A6444A904255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2820C2DF-F04A-44C2-B365-A6444A904255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C193ECF3-FD35-4E75-A617-8D280AC8E044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C193ECF3-FD35-4E75-A617-8D280AC8E044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C193ECF3-FD35-4E75-A617-8D280AC8E044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C193ECF3-FD35-4E75-A617-8D280AC8E044}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

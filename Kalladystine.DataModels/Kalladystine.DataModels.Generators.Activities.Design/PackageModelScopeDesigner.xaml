@@ -1,0 +1,36 @@
+﻿<sap:ActivityDesigner x:Class="Kalladystine.DataModels.Generators.Activities.Design.PackageModelScopeDesigner"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+                      Collapsible="True">
+    <StackPanel>
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="PackageId" HorizontalAlignment="Left"/>
+            
+            <sapv:ExpressionTextBox
+                Grid.Row="0" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.PackageId, Mode=TwoWay}"
+                ExpressionType="s:String"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="Package Id"
+                />
+
+
+        </Grid>
+        <Label Content="Body" HorizontalAlignment="Center"/>-->
+        <sap:WorkflowItemPresenter
+            Item="{Binding Path=ModelItem.Body}"
+            HintText="Drop activity here"
+            />
+    </StackPanel>
+</sap:ActivityDesigner>
