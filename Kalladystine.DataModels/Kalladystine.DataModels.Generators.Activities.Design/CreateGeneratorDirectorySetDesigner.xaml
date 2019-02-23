@@ -1,11 +1,11 @@
-﻿<sap:ActivityDesigner x:Class="Kalladystine.DataModels.Generators.Activities.Design.ClassModelScopeDesigner"
+﻿<sap:ActivityDesigner x:Class="Kalladystine.DataModels.Generators.Activities.Design.CreateGeneratorDirectorySetDesigner"
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="clr-namespace:System;assembly=mscorlib"
     xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
     xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
     xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
-    Collapsible="True">
+    Collapsible="False">
 
     <sap:ActivityDesigner.Resources>
         <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
@@ -20,42 +20,35 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition MinWidth="200"/>
+                <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="ClassName" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="WorkingDirectory" HorizontalAlignment="Left" Margin="0,0,0,2"/>
             <sapv:ExpressionTextBox
                 Grid.Row="0" Grid.Column="1"
-                Expression="{Binding Path=ModelItem.Name, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                Expression="{Binding Path=ModelItem.WorkingDirectory, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
                 ExpressionType="s:String"
                 OwnerActivity="{Binding Path=ModelItem}"
-                HintText="Class Name" Margin="0,0,0,2"
+                HintText="String path expression" Margin="0,0,0,2"
                 />
 
-            <Label Grid.Row="1" Grid.Column="0" Content="With Serializable" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="NupkgStoreDirectory" HorizontalAlignment="Left" Margin="0,0,0,2"/>
             <sapv:ExpressionTextBox
                 Grid.Row="1" Grid.Column="1"
-                Expression="{Binding Path=ModelItem.WithSerializableAttribute, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
-                ExpressionType="s:Boolean"
+                Expression="{Binding Path=ModelItem.NupkgStoreDirectory, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:String"
                 OwnerActivity="{Binding Path=ModelItem}"
-                HintText="With serializable attribute" Margin="0,0,0,2"
+                HintText="String path expression" Margin="0,0,0,2"
                 />
 
-            <Label Grid.Row="2" Grid.Column="0" Content="With Builder" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="EnsureDirectoriesAreValid" HorizontalAlignment="Left" Margin="0,0,0,2"/>
             <sapv:ExpressionTextBox
                 Grid.Row="2" Grid.Column="1"
-                Expression="{Binding Path=ModelItem.WithBuildActivity, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                Expression="{Binding Path=ModelItem.EnsureDirectoriesAreValid, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
                 ExpressionType="s:Boolean"
                 OwnerActivity="{Binding Path=ModelItem}"
-                HintText="With auto-generated builder activity" Margin="0,0,0,2"
+                HintText="Boolean expression" Margin="0,0,0,2"
                 />
-
         </Grid>
-
-        <sap:WorkflowItemPresenter
-            Item="{Binding Path=ModelItem.Body}"
-            HintText="Drop activity here"
-            Margin="5"
-            />
     </StackPanel>
 </sap:ActivityDesigner>

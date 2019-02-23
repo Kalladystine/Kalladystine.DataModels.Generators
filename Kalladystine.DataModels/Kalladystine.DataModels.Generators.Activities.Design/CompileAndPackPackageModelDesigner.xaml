@@ -1,0 +1,35 @@
+﻿<sap:ActivityDesigner x:Class="Kalladystine.DataModels.Generators.Activities.Design.CompileAndPackPackageModelDesigner"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    xmlns:kdmgm="clr-namespace:Kalladystine.DataModels.Generators.Models;assembly=Kalladystine.DataModels.Generators"
+    Collapsible="False">
+
+    <sap:ActivityDesigner.Resources>
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+    </sap:ActivityDesigner.Resources>
+
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="PackageModel" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <sapv:ExpressionTextBox
+                Grid.Row="0" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.PackageModel, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="kdmgm:PackageModel"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="PackageModel" Margin="0,0,0,2"
+                />
+        </Grid>
+    </StackPanel>
+</sap:ActivityDesigner>

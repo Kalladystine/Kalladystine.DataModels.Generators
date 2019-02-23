@@ -197,7 +197,10 @@ namespace Kalladystine.DataModels.Generators.CodeGenerators
             sb.AppendLine($"protected override {model.Name} Execute(CodeActivityContext context)");
             OpenBrace(sb); // open Execute
             sb.Append($"return new {model.Name}(");
-            sb.Append(String.Join(", ", model.Properties.Select(p => p.Name + ".Get(context)")));
+            sb.Append(String.Join(", ", 
+                model.Properties.Select(p => p.Name + ".Get(context)" + 
+                (p.RequiresInitialization ? " ?? new " + p.TypeName + "()" : String.Empty))
+                ));
             sb.AppendLine(");");
             CloseBrace(sb); // close Execute
 

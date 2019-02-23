@@ -48,14 +48,42 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AddGenericPropertyDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddPropertyDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClassModelScopeDesigner.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CompileAndPackPackageModelDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateGeneratorDirectorySetDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PackageModelScopeDesigner.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddGenericPropertyDesigner.xaml.cs">
+      <DependentUpon>AddGenericPropertyDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddPropertyDesigner.xaml.cs">
+      <DependentUpon>AddPropertyDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CompileAndPackPackageModelDesigner.xaml.cs">
+      <DependentUpon>CompileAndPackPackageModelDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateGeneratorDirectorySetDesigner.xaml.cs">
+      <DependentUpon>CreateGeneratorDirectorySetDesigner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DesignerMetadata.cs" />
     <Compile Include="ClassModelScopeDesigner.xaml.cs">
       <DependentUpon>ClassModelScopeDesigner.xaml</DependentUpon>
@@ -94,6 +122,10 @@
     <ProjectReference Include="..\Kalladystine.DataModels.Generators.Activities\Kalladystine.DataModels.Generators.Activities.csproj">
       <Project>{2820c2df-f04a-44c2-b365-a6444a904255}</Project>
       <Name>Kalladystine.DataModels.Generators.Activities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kalladystine.DataModels.Generators\Kalladystine.DataModels.Generators.csproj">
+      <Project>{8e8dc4fe-7978-4ec6-8ded-6015528b2b30}</Project>
+      <Name>Kalladystine.DataModels.Generators</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

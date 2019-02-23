@@ -14,8 +14,8 @@ namespace Kalladystine.DataModels.Generators.Activities
     public sealed class ClassModelScope : NativeActivity
     {
         #region NativeActivityProperties
-        [Browsable(false)]
-        public Collection<Variable> Variables { get; }
+        //[Browsable(false)]
+        //public Collection<Variable> Variables { get; }
 
         [Browsable(false)]
         public Activity Body { get; set; }
@@ -31,7 +31,7 @@ namespace Kalladystine.DataModels.Generators.Activities
         #region Constructors
         public ClassModelScope()
         {
-            Variables = new Collection<Variable>();
+            //Variables = new Collection<Variable>();
             Body = new Sequence { DisplayName = "Body" };
         }
 

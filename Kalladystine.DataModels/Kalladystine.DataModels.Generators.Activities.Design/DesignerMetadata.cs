@@ -18,9 +18,14 @@ namespace Kalladystine.Statements.Activities.Design
             builder.AddCustomAttributes(typeof(AddProperty), dataModelsCategory);
             builder.AddCustomAttributes(typeof(AddGenericProperty<>), dataModelsCategory);
             builder.AddCustomAttributes(typeof(CreateGeneratorDirectorySet), dataModelsCategory);
+            builder.AddCustomAttributes(typeof(CompileAndPackPackageModel), dataModelsCategory);
 
             builder.AddCustomAttributes(typeof(PackageModelScope), new DesignerAttribute(typeof(PackageModelScopeDesigner)));
             builder.AddCustomAttributes(typeof(ClassModelScope), new DesignerAttribute(typeof(ClassModelScopeDesigner)));
+            builder.AddCustomAttributes(typeof(AddGenericProperty<>), new DesignerAttribute(typeof(AddGenericPropertyDesigner)));
+            builder.AddCustomAttributes(typeof(AddProperty), new DesignerAttribute(typeof(AddPropertyDesigner)));
+            builder.AddCustomAttributes(typeof(CreateGeneratorDirectorySet), new DesignerAttribute(typeof(CreateGeneratorDirectorySetDesigner)));
+            builder.AddCustomAttributes(typeof(CompileAndPackPackageModel), new DesignerAttribute(typeof(CompileAndPackPackageModelDesigner)));
 
             MetadataStore.AddAttributeTable(builder.CreateTable());
         }
