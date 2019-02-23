@@ -1,0 +1,65 @@
+﻿<sap:ActivityDesigner x:Class="Kalladystine.DataModels.Generators.Activities.Design.AddPropertyDesigner"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    Collapsible="False">
+
+    <sap:ActivityDesigner.Resources>
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+    </sap:ActivityDesigner.Resources>
+
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="PropertyName" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <sapv:ExpressionTextBox
+                Grid.Row="0" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.PropertyName, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:String"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="String expression" Margin="0,0,0,2"
+                />
+
+            <Label Grid.Row="1" Grid.Column="0" Content="PropertyTypeName" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <sapv:ExpressionTextBox
+                Grid.Row="1" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.PropertyTypeName, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:String"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="String expression, Note! Use C# syntax for generic types!" Margin="0,0,0,2"
+                />
+
+            <Label Grid.Row="2" Grid.Column="0" Content="RequiresInitialization" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <sapv:ExpressionTextBox
+                Grid.Row="2" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.RequiresInitialization, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:Boolean"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="Boolean expression. Set to true for reference types to avoid NRE's if unset in builder." Margin="0,0,0,2"
+                />
+
+            <Label Grid.Row="3" Grid.Column="0" Content="MarkRequiredInBuilder" HorizontalAlignment="Left" Margin="0,0,0,2"/>
+            <sapv:ExpressionTextBox
+                Grid.Row="3" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.MarkRequiredInBuilder, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:Boolean"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="Boolean expression." Margin="0,0,0,2"
+                />
+
+        </Grid>
+    </StackPanel>
+</sap:ActivityDesigner>

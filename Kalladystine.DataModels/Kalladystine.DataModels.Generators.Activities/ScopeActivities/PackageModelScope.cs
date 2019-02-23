@@ -14,8 +14,8 @@ namespace Kalladystine.DataModels.Generators.Activities
     public sealed class PackageModelScope : NativeActivity
     {
         #region NativeActivityProperties
-        [Browsable(false)]
-        public Collection<Variable> Variables { get; }
+        //[Browsable(false)]
+        //public Collection<Variable> Variables { get; }
 
         [Browsable(false)]
         public Activity Body { get; set; }
@@ -30,18 +30,19 @@ namespace Kalladystine.DataModels.Generators.Activities
         public InArgument<string> Description { get; set; }
         [RequiredArgument]
         [Category("Required")]
-        public InArgument<Version> Version { get; set; }
+        public InArgument<int> MajorVersion { get; set; }
+        [Category("Required")]
+        public InArgument<int> MinorVersion { get; set; }
         [RequiredArgument]
         [Category("Required")]
         public InArgument<string> Authors { get; set; }
         [RequiredArgument]
         [Category("Required")]
         public InArgument<GeneratorDirectorySet> DirectorySet { get; set; }
-        [RequiredArgument]
-        [Category("Required")]
+        
+        [Category("COM")]
         public InArgument<string> ModelsAssemblyGuid { get; set; }
-        [RequiredArgument]
-        [Category("Required")]
+        [Category("COM")]
         public InArgument<string> ActivitiesAssemblyGuid { get; set; }
 
         [Category("Additional")]
@@ -65,7 +66,7 @@ namespace Kalladystine.DataModels.Generators.Activities
         #region Constructors
         public PackageModelScope()
         {
-            Variables = new Collection<Variable>();
+            //Variables = new Collection<Variable>();
             Body = new Sequence { DisplayName = "Body" };
         }
 
@@ -79,7 +80,7 @@ namespace Kalladystine.DataModels.Generators.Activities
 
             pModel.Id = PackageId.Get(context);
             pModel.Description = Description.Get(context);
-            pModel.Version = Version.Get(context);
+            pModel.Version = Models.PackageModel.CreateFullVersionFromMajorMinor(MajorVersion.Get(context), MinorVersion.Get(context));
             pModel.Authors = Authors.Get(context);
             pModel.Owners = Owners.Get(context);
             pModel.LicenseUrl = LicenseUrl.Get(context);
@@ -90,8 +91,8 @@ namespace Kalladystine.DataModels.Generators.Activities
             pModel.Copyright = Copyright.Get(context);
             pModel.Tags = Tags.Get(context);
             pModel.DirectorySet = DirectorySet.Get(context);
-            pModel.ModelsAssemblyGuid = ModelsAssemblyGuid.Get(context);
-            pModel.ActivitiesAssemblyGuid = ActivitiesAssemblyGuid.Get(context);
+            pModel.ModelsAssemblyGuid = ModelsAssemblyGuid.Get(context) ?? Guid.NewGuid().ToString();
+            pModel.ActivitiesAssemblyGuid = ActivitiesAssemblyGuid.Get(context) ?? Guid.NewGuid().ToString();
 
             this.PackageModel.Set(context, pModel);
 

@@ -4,33 +4,75 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:s="clr-namespace:System;assembly=mscorlib"
     xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
     xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
-                      Collapsible="True">
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    Collapsible="False">
+
+    <sap:ActivityDesigner.Resources>
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+    </sap:ActivityDesigner.Resources>
+
     <StackPanel>
-        <!--<Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition MinWidth="300"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="PackageId" HorizontalAlignment="Left" Margin="0,0,0,2" />
+            <sapv:ExpressionTextBox
+                Grid.Row="0" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.PackageId, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:String"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="Package Id" Margin="0,0,0,2" 
+                />
+
+            <Label Grid.Row="1" Grid.Column="0" Content="ReleaseNotes" HorizontalAlignment="Left" Margin="0,0,0,2" />
+            <sapv:ExpressionTextBox
+                Grid.Row="1" Grid.Column="1"
+                Expression="{Binding Path=ModelItem.ReleaseNotes, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:String"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="String expression" Margin="0,0,0,2" 
+                />
+        </Grid>
+
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="PackageId" HorizontalAlignment="Left"/>
-            
+            <Label Grid.Row="0" Grid.Column="0" Content="MajorVersion" HorizontalAlignment="Left" Margin="0,0,0,2" />
             <sapv:ExpressionTextBox
                 Grid.Row="0" Grid.Column="1"
-                Expression="{Binding Path=ModelItem.PackageId, Mode=TwoWay}"
-                ExpressionType="s:String"
+                Expression="{Binding Path=ModelItem.MajorVersion, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:Int32"
                 OwnerActivity="{Binding Path=ModelItem}"
-                HintText="Package Id"
+                HintText="Major" Margin="0,0,0,2" 
                 />
-
-
+            <Label Grid.Row="0" Grid.Column="2" Content="MinorVersion" HorizontalAlignment="Left" Margin="0,0,0,2" />
+            <sapv:ExpressionTextBox
+                Grid.Row="0" Grid.Column="3"
+                Expression="{Binding Path=ModelItem.MinorVersion, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In, Mode=TwoWay}"
+                ExpressionType="s:Int32"
+                OwnerActivity="{Binding Path=ModelItem}"
+                HintText="Major" Margin="0,0,0,2" 
+                />
         </Grid>
-        <Label Content="Body" HorizontalAlignment="Center"/>-->
+
         <sap:WorkflowItemPresenter
             Item="{Binding Path=ModelItem.Body}"
-            HintText="Drop activity here"
+            HintText="Drop activity here" Margin="5"
             />
     </StackPanel>
 </sap:ActivityDesigner>
