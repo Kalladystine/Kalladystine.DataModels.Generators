@@ -17,6 +17,8 @@ namespace Kalladystine.DataModels.Generators.Activities
         [Category("New property model")]
         public InArgument<string> PropertyTypeName { get; set; }
         [Category("New property model")]
+        public InArgument<string> Description { get; set; }
+        [Category("New property model")]
         public InArgument<bool> RequiresInitialization { get; set; }
         [Category("New property model")]
         public InArgument<bool> MarkRequiredInBuilder { get; set; }
@@ -24,7 +26,7 @@ namespace Kalladystine.DataModels.Generators.Activities
         protected override void Execute(NativeActivityContext context)
         {
             
-            var prModel = new PropertyModel(PropertyName.Get(context), PropertyTypeName.Get(context), RequiresInitialization.Get(context), MarkRequiredInBuilder.Get(context));
+            var prModel = new PropertyModel(PropertyName.Get(context), PropertyTypeName.Get(context), Description.Get(context), RequiresInitialization.Get(context), MarkRequiredInBuilder.Get(context));
             ((ClassModel)context.Properties.Find("ClassModel")).AddProperty(prModel);
 
         }

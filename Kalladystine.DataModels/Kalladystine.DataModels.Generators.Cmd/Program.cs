@@ -29,19 +29,23 @@ namespace Kalladystine.DataModels.Generators.Cmd
             packageModel.Version = PackageModel.CreateFullVersionFromMajorMinor(1, 0);
             packageModel.Authors = "Kalladystine";
 
-            var streetAddressProperties = new List<PropertyModel>();
-            streetAddressProperties.Add(new PropertyModel("City", typeof(string), false, true));
-            streetAddressProperties.Add(new PropertyModel("Street", typeof(string)));
-            streetAddressProperties.Add(new PropertyModel("PostCode", typeof(string), false, true));
-            streetAddressProperties.Add(new PropertyModel("HouseNumber", typeof(string)));
-            streetAddressProperties.Add(new PropertyModel("ApartmentNumber", typeof(string)));
+            var streetAddressProperties = new List<PropertyModel>
+            {
+                new PropertyModel("City", typeof(string), "Name of the city", false, true),
+                new PropertyModel("Street", typeof(string)),
+                new PropertyModel("PostCode", typeof(string), "In standard format", false, true),
+                new PropertyModel("HouseNumber", typeof(string)),
+                new PropertyModel("ApartmentNumber", typeof(string))
+            };
             var streeAddressModel = new ClassModel("StreetAddress", streetAddressProperties);
             packageModel.AddClassModel(streeAddressModel);
 
-            var customerProperties = new List<PropertyModel>();
-            customerProperties.Add(new PropertyModel("Name", typeof(string)));
-            customerProperties.Add(new PropertyModel("Surname", typeof(string), false, true));
-            customerProperties.Add(new PropertyModel("Addresses", "List<StreetAddress>", true));
+            var customerProperties = new List<PropertyModel>
+            {
+                new PropertyModel("Name", typeof(string)),
+                new PropertyModel("Surname", typeof(string), "Full one", false, true),
+                new PropertyModel("Addresses", "List<StreetAddress>", "All of them", true)
+            };
             var customerModel = new ClassModel("Customer", customerProperties);
             packageModel.AddClassModel(customerModel);
 

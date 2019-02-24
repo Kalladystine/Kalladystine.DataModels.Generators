@@ -11,12 +11,13 @@ namespace Kalladystine.DataModels.Generators.Activities
     {
         [RequiredArgument]
         public InArgument<string> Name { get; set; }
+        public InArgument<string> Description { get; set; }
         public InArgument<bool> RequiresInitialization { get; set; }
         public InArgument<bool> MarkRequiredInBuilder { get; set; }
 
         protected override PropertyModel Execute(CodeActivityContext context)
         {
-            return new PropertyModel(Name.Get(context), typeof(T), RequiresInitialization.Get(context), MarkRequiredInBuilder.Get(context));
+            return new PropertyModel(Name.Get(context), typeof(T), Description.Get(context), RequiresInitialization.Get(context), MarkRequiredInBuilder.Get(context));
         }
     }
 }
