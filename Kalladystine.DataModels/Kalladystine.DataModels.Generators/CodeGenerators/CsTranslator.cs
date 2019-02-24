@@ -138,6 +138,13 @@ namespace Kalladystine.DataModels.Generators.CodeGenerators
         {
             foreach (var property in model.Properties)
             {
+                if (!String.IsNullOrWhiteSpace(property.Description))
+                {
+                    sb.AppendLine("/// <summary>");
+                    sb.AppendLine("/// " + property.Description);
+                    sb.AppendLine("/// </summary>");
+                }
+
                 sb.AppendLine($"public {property.TypeName} {property.Name} {{ get; set; }}");
             }
         }
@@ -188,6 +195,11 @@ namespace Kalladystine.DataModels.Generators.CodeGenerators
                 {
                     sb.AppendLine("[DefaultValue(null)]");
                     sb.AppendLine("[Category(\"Optional Fields\")]");
+                }
+
+                if (!String.IsNullOrWhiteSpace(property.Description))
+                {
+                    sb.AppendLine($"[Description(\"{property.Description}\")]");
                 }
                 
                 sb.AppendLine($"public InArgument<{property.TypeName}> {property.Name} {{ get; set; }}");

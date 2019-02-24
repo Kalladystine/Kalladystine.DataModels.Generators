@@ -45,11 +45,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddClassModelToPackageModel.cs" />
     <Compile Include="ScopeActivities\AddGenericProperty.cs" />
     <Compile Include="ScopeActivities\AddProperty.cs" />
-    <Compile Include="AddPropertyModelToClassModel.cs" />
-    <Compile Include="AddGenericPropertyModelToClassModel.cs" />
     <Compile Include="ScopeActivities\ClassModelScope.cs" />
     <Compile Include="CompileAndPackPackageModel.cs" />
     <Compile Include="CreateClassModel.cs" />
